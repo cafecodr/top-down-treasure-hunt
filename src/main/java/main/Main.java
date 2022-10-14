@@ -6,9 +6,10 @@ public class Main {
     final static String NAME = "2D Adventure";
     final static int MAJOR = 0;
     final static int MINOR = 0;
-    final static int COMMIT = 2;
+    final static int VIDEO_NUM = 4;
+    final static String VIDEO_SERIES = "How to Make a 2D Game in Java";
     final static String TITLE = String.format("%s v%d.%d.%d",
-            NAME, MAJOR, MINOR, COMMIT);
+            NAME, MAJOR, MINOR, VIDEO_NUM);
 
     public static void main(String[] args) {
         JFrame window = new JFrame();
