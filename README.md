@@ -1,0 +1,41 @@
+# Top Down Game 
+
+A simple Java `JFrame` displayed game from top-down perspective. 
+
+## Description
+
+The game will include RPG style free roaming on a map for the player with small buildings and npcs to interact with.
+
+## Getting Started
+
+### Dependencies
+
+* Java
+
+### Installing
+
+* clone the project to download the source (unless I decide to package the game into a `.jar`)
+
+### Executing program
+
+* Run the `Main.java` file.
+```
+java main.Main
+```
+
+## Version History
+
+* 0.2
+    * Various bug fixes and optimizations
+    * See [commit change]() or See [release history]()
+* 0.1
+    * Initial Release
+
+## Acknowledgments
+
+Inspiration, code snippets, etc.
+* [awesome-readme](https://github.com/matiassingers/awesome-readme)
+* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* [dbader](https://github.com/dbader/readme-template)
+* [zenorocha](https://gist.github.com/zenorocha/4526327)
+* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
