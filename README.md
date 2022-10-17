@@ -25,6 +25,8 @@ java main.Main
 
 ## Version History
 
+* 0.0.5
+    * Updated tile background to use player camera.
 * 0.0.4
     * Simple tiled background from a map txt file.
       * No collisions or events yet.
