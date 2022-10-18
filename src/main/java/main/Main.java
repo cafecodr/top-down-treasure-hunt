@@ -6,7 +6,7 @@ public class Main {
     final static String NAME = "2D Adventure";
     final static int MAJOR = 0;
     final static int MINOR = 0;
-    final static int VIDEO_NUM = 7;
+    final static int VIDEO_NUM = 8;
     final static String VIDEO_SERIES = "How to Make a 2D Game in Java";
     final static String TITLE = String.format("%s v%d.%d.%d",
             NAME, MAJOR, MINOR, VIDEO_NUM);

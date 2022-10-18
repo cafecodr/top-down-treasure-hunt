@@ -25,6 +25,8 @@ java main.Main
 
 ## Version History
 
+* 0.0.7
+    * Added Objects (keys, doors, chests) and displayed on the map.
 * 0.0.6
     * Implemented simple collision detection for the player against background tiles.
 * 0.0.5
