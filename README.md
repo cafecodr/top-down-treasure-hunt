@@ -25,6 +25,8 @@ java main.Main
 
 ## Version History
 
+* 0.0.6
+    * Implemented simple collision detection for the player against background tiles.
 * 0.0.5
     * Updated tile background to use player camera.
 * 0.0.4

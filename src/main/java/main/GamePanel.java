@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.SuperObject;
 import tiles.TileManager;
 
 import javax.swing.*;
@@ -26,6 +27,8 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
     public Player player = new Player(this, keyH);
+    public SuperObject[] objects = new SuperObject[10];
+    public AssetSetter aSetter = new AssetSetter(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -33,6 +36,24 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    public void setupGame() {
+        aSetter.setObject();
+    }
+
+    public boolean isOnScreen(int worldX, int worldY) {
+        return (worldX > player.worldX - player.screenX - tileSize &&
+                worldX < player.worldX + player.screenX + tileSize &&
+                worldY > player.worldY - player.screenY - tileSize &&
+                worldY < player.worldY + player.screenY + tileSize);
+    }
+
+    public boolean isOnScreen(SuperObject obj) {
+        return (obj.worldX > player.worldX - player.screenX - tileSize &&
+                obj.worldX < player.worldX + player.screenX + tileSize &&
+                obj.worldY > player.worldY - player.screenY - tileSize &&
+                obj.worldY < player.worldY + player.screenY + tileSize);
     }
 
     public void startGameThread() {
@@ -82,6 +103,13 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         tileM.draw(g2d);
+
+        for (SuperObject object : objects) {
+            if (object != null) {
+                object.draw(g2d, this);
+            }
+        }
+
         player.draw(g2d);
 
         g2d.dispose();
