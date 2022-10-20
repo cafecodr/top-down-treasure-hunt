@@ -113,6 +113,10 @@ public class Player extends Entity {
                         hasKey--;
                     }
                     break;
+                case "Boots":
+                    speed += 2;
+                    gp.objects[index] = null;
+                    break;
             }
         }
     }
