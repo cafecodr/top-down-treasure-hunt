@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class TileManager {
@@ -27,7 +28,7 @@ public class TileManager {
         String filename = String.format("/maps/%s.txt", mapName);
         try {
             InputStream is = getClass().getResourceAsStream(filename);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
 
             int col = 0, row = 0;
 
@@ -89,5 +90,9 @@ public class TileManager {
                 worldRow++;
             }
         }
+    }
+
+    public Tile getTile(int index) {
+        return tiles.get(index);
     }
 }
