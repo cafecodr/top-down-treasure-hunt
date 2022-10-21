@@ -14,7 +14,7 @@ public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
     public final int screenX, screenY;
-    int hasKey = 0;
+    public int hasKey = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -108,18 +108,29 @@ public class Player extends Entity {
                     hasKey++;
                     gp.objects[index] = null;
                     gp.playSE(Sound.COIN);
+                    gp.ui.showMessage("You found a KEY.");
                     break;
                 case "Door":
                     if (hasKey > 0) {
                         gp.playSE(Sound.UNLOCK);
                         gp.objects[index] = null;
                         hasKey--;
+                        gp.ui.showMessage("You opened a DOOR.");
+                    } else {
+                        gp.ui.showMessage("You need to find a KEY to open this DOOR.");
                     }
                     break;
                 case "Boots":
                     gp.playSE(Sound.POWER_UP);
                     speed += 1;
                     gp.objects[index] = null;
+                    gp.ui.showMessage("You found BOOTS. Movement speed increased.");
+                    break;
+                case "Chest":
+                    gp.stopMusic();
+                    gp.playSE(Sound.FANFARE);
+                    gp.objects[index] = null;
+                    gp.ui.gameFinished = true;
                     break;
             }
         }

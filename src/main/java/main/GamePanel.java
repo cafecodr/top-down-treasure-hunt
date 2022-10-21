@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     TileManager tileM = new TileManager(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
+    public UI ui = new UI(this);
     public Sound music = new Sound();
     public Sound effects = new Sound();
     public Player player = new Player(this, keyH);
@@ -113,6 +114,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         player.draw(g2d);
 
+        ui.draw(g2d);
+        
         g2d.dispose();
     }
 

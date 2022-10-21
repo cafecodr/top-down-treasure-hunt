@@ -24,6 +24,6 @@ public class SuperObject {
     }
 
     public void interact(Entity entity) {
-        System.out.printf("%s touched %s\n", entity.getClass(), name);
+//        System.out.printf("%s touched %s\n", entity.getClass(), name);
     }
 }
