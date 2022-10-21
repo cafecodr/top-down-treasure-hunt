@@ -67,7 +67,7 @@ public class TileManager {
         }
     }
 
-    public Tile getTile(Tile index) {
+    public Tile getTile(int index) {
         return tiles.get(index);
     }
 
