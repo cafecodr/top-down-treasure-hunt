@@ -25,6 +25,10 @@ java main.Main
 
 ## Version History
 
+* 0.0.9
+    * Added Sound class to manage background music and sound effects.
+* 0.0.8
+    * Added Object boots for player interaction and power up.
 * 0.0.7
     * Added Objects (keys, doors, chests) and displayed on the map.
 * 0.0.6
