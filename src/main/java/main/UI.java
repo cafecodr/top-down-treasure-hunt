@@ -32,7 +32,7 @@ public class UI {
     public void draw(Graphics2D g2d) {
         if (gameFinished) {
             g2d.setColor(panel);
-            g2d.fillRect((int) (gp.tileSize * 2.5), (int) (gp.tileSize * 5), (int) (gp.tileSize * 11), (int) (gp.tileSize * 2));
+            g2d.fillRect((int) (gp.tileSize * 2.5), (int) (gp.tileSize * 5), (int) (gp.tileSize * 11), (int) (gp.tileSize * 2.5));
 
             g2d.setFont(arial24B);
             g2d.setColor(Color.WHITE);

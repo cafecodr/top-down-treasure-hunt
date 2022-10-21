@@ -2,15 +2,13 @@ package tiles;
 
 import main.GamePanel;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 public class TileManager {
+    static final int I_GRASS = 0, I_WALL = 1, I_WATER = 2, I_EARTH = 3, I_TREE = 4, I_SAND = 5;
     GamePanel gp;
     public Tile[] tiles;
     public int[][] mapTileNum;
@@ -56,26 +54,13 @@ public class TileManager {
     }
 
     public void getTileImage() {
-        try {
-            tiles[0] = new Tile();
-            tiles[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/grass.png")));
-            tiles[1] = new Tile();
-            tiles[1].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/wall.png")));
-            tiles[1].collision = true;
-            tiles[2] = new Tile();
-            tiles[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/water.png")));
-            tiles[2].collision = true;
+        tiles[I_GRASS] = new TlGrass();
+        tiles[I_WALL] = new TlWall();
+        tiles[I_WATER] = new TlWater();
 
-            tiles[3] = new Tile();
-            tiles[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/earth.png")));
-            tiles[4] = new Tile();
-            tiles[4].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/tree.png")));
-            tiles[4].collision = true;
-            tiles[5] = new Tile();
-            tiles[5].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/sand.png")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        tiles[I_EARTH] = new TlEarth();
+        tiles[I_TREE] = new TlTree();
+        tiles[I_SAND] = new TlSand();
     }
 
     public void draw(Graphics2D g2d) {
@@ -92,7 +77,7 @@ public class TileManager {
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
             if (gp.isOnScreen(worldX, worldY)) {
-                g2d.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                g2d.drawImage(tiles[tileNum].getImage(), screenX, screenY, gp.tileSize, gp.tileSize, null);
             }
             worldCol++;
 
