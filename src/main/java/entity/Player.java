@@ -2,6 +2,7 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import main.Sound;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -106,17 +107,17 @@ public class Player extends Entity {
                 case "Key":
                     hasKey++;
                     gp.objects[index] = null;
-                    gp.playSE(1);
+                    gp.playSE(Sound.COIN);
                     break;
                 case "Door":
                     if (hasKey > 0) {
-                        gp.playSE(3);
+                        gp.playSE(Sound.UNLOCK);
                         gp.objects[index] = null;
                         hasKey--;
                     }
                     break;
                 case "Boots":
-                    gp.playSE(2);
+                    gp.playSE(Sound.POWER_UP);
                     speed += 1;
                     gp.objects[index] = null;
                     break;

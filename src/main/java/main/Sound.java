@@ -6,15 +6,20 @@ import javax.sound.sampled.Clip;
 import java.net.URL;
 
 public class Sound {
+    public static final int BG_MUSIC = 0;
+    public static final int COIN = 1;
+    public static final int POWER_UP = 2;
+    public static final int UNLOCK = 3;
+    public static final int FANFARE = 4;
     Clip clip;
     URL[] soundURL = new URL[30];
 
     public Sound() {
-        soundURL[0] = getClass().getResource("/sound/BlueBoyAdventure.wav");
-        soundURL[1] = getClass().getResource("/sound/coin.wav");
-        soundURL[2] = getClass().getResource("/sound/powerup.wav");
-        soundURL[3] = getClass().getResource("/sound/unlock.wav");
-        soundURL[4] = getClass().getResource("/sound/fanfare.wav");
+        soundURL[BG_MUSIC] = getClass().getResource("/sound/BlueBoyAdventure.wav");
+        soundURL[COIN] = getClass().getResource("/sound/coin.wav");
+        soundURL[POWER_UP] = getClass().getResource("/sound/powerup.wav");
+        soundURL[UNLOCK] = getClass().getResource("/sound/unlock.wav");
+        soundURL[FANFARE] = getClass().getResource("/sound/fanfare.wav");
     }
 
     public void setFile(int index) {

@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setupGame() {
         aSetter.setObject();
-        playMusic(0);
+        playMusic(Sound.BG_MUSIC);
     }
 
     public boolean isOnScreen(int worldX, int worldY) {
@@ -115,8 +115,8 @@ public class GamePanel extends JPanel implements Runnable {
         g2d.dispose();
     }
 
-    public void playMusic(int i) {
-        sound.setFile(i);
+    public void playMusic(int index) {
+        sound.setFile(index);
         sound.play();
         sound.loop();
     }
@@ -125,8 +125,8 @@ public class GamePanel extends JPanel implements Runnable {
         sound.stop();
     }
 
-    public void playSE(int i) {
-        sound.setFile(i);
+    public void playSE(int index) {
+        sound.setFile(index);
         sound.play();
     }
 }
