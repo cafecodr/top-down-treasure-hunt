@@ -106,15 +106,18 @@ public class Player extends Entity {
                 case "Key":
                     hasKey++;
                     gp.objects[index] = null;
+                    gp.playSE(1);
                     break;
                 case "Door":
                     if (hasKey > 0) {
+                        gp.playSE(3);
                         gp.objects[index] = null;
                         hasKey--;
                     }
                     break;
                 case "Boots":
-                    speed += 2;
+                    gp.playSE(2);
+                    speed += 1;
                     gp.objects[index] = null;
                     break;
             }
