@@ -3,56 +3,32 @@ package tiles;
 import main.GamePanel;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Objects;
 
 
 public class TileManager {
     static final int I_GRASS = 0, I_WALL = 1, I_WATER = 2, I_EARTH = 3, I_TREE = 4, I_SAND = 5;
     GamePanel gp;
     private HashMap<Integer, Tile> tiles;
-    public int[][] mapTileNum;
+    public MapManager mManager;
+    private int worldNum;
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
-        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+        worldNum = 1;
+        mManager = new MapManager(gp);
 
         loadTiles();
-        loadMap("world01");
+        mManager.loadMap(mapName());
     }
 
-    public void loadMap(String mapName) {
-        String filename = String.format("/maps/%s.txt", mapName);
-        try {
-            InputStream is = getClass().getResourceAsStream(filename);
-            BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
-
-            int col = 0, row = 0;
-
-            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
-                String line = br.readLine();
-
-                while (col < gp.maxWorldCol) {
-                    String[] numbers = line.split(" ");
-                    int num = Integer.parseInt(numbers[col]);
-
-                    mapTileNum[col][row] = num;
-                    col++;
-                }
-
-                if (col == gp.maxWorldCol) {
-                    col = 0;
-                    row++;
-                }
-            }
-
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+    private String mapName() {
+        String num = "";
+        if (worldNum < 10) {
+            num += "0";
         }
+        num += String.valueOf(worldNum);
+        return String.format("world%s", num);
     }
 
     public void loadTiles() {
@@ -72,8 +48,7 @@ public class TileManager {
         int worldRow = 0;
 
         while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
-
-            int tileNum = mapTileNum[worldCol][worldRow];
+            int tileNum = mManager.getTileNum(worldCol, worldRow);
 
             int worldX = worldCol * gp.tileSize;
             int worldY = worldRow * gp.tileSize;
@@ -92,7 +67,12 @@ public class TileManager {
         }
     }
 
-    public Tile getTile(int index) {
+    public Tile getTile(Tile index) {
+        return tiles.get(index);
+    }
+
+    public Tile getTile(int mapCol, int mapRow) {
+        int index = mManager.getTileNum(mapCol, mapRow);
         return tiles.get(index);
     }
 }
