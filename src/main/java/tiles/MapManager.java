@@ -16,10 +16,6 @@ public class MapManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
     }
 
-    public int getTileNum(int col, int row) {
-        return mapTileNum[col][row];
-    }
-
     public void loadMap(String mapName) {
         String filename = String.format("/maps/%s.txt", mapName);
         try {
@@ -49,5 +45,9 @@ public class MapManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public int getTileNum(int col, int row) {
+        return mapTileNum[col][row];
     }
 }

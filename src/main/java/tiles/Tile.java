@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Tile {
-    private BufferedImage image;
+    private final BufferedImage image;
     private boolean collision = false;
 
     public Tile(BufferedImage image, boolean collision) {
