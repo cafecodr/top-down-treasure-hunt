@@ -22,6 +22,14 @@ public class Tile {
         this(null, false);
     }
 
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public boolean collides() {
+        return collision;
+    }
+
     public static BufferedImage loadImage(String name) {
         try {
             String path = String.format("/tiles/%s.png", name);
@@ -31,11 +39,4 @@ public class Tile {
         }
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public boolean collides() {
-        return collision;
-    }
 }

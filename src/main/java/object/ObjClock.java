@@ -1,17 +1,9 @@
 package object;
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-import java.util.Objects;
+import main.GamePanel;
 
 public class ObjClock extends SuperObject {
-    public ObjClock() {
-        name = "Clock";
-
-        try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/objects/clock.png")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public ObjClock(GamePanel gp) {
+        super(gp, SuperObject.loadImage("clock"), "Clock");
     }
 }

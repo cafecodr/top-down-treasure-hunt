@@ -52,10 +52,10 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public boolean isOnScreen(SuperObject obj) {
-        return (obj.worldX > player.worldX - player.screenX - tileSize &&
-                obj.worldX < player.worldX + player.screenX + tileSize &&
-                obj.worldY > player.worldY - player.screenY - tileSize &&
-                obj.worldY < player.worldY + player.screenY + tileSize);
+        return (obj.getWorldX() > player.worldX - player.screenX - tileSize &&
+                obj.getWorldX() < player.worldX + player.screenX + tileSize &&
+                obj.getWorldY() > player.worldY - player.screenY - tileSize &&
+                obj.getWorldY() < player.worldY + player.screenY + tileSize);
     }
 
     public void startGameThread() {

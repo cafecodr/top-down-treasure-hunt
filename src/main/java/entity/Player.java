@@ -102,7 +102,7 @@ public class Player extends Entity {
 
     public void pickUpObject(int index) {
         if (index != 999) {
-            String objName = gp.objects[index].name;
+            String objName = gp.objects[index].getName();
             switch (objName) {
                 case "Key":
                     hasKey++;

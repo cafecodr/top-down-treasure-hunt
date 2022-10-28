@@ -2,6 +2,7 @@ package main;
 
 import object.ObjClock;
 import object.ObjKey;
+import object.SuperObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -23,10 +24,8 @@ public class UI {
 
     public UI(GamePanel gp) {
         this.gp = gp;
-        ObjKey key = new ObjKey();
-        keyIcon = key.image;
-        ObjClock clock = new ObjClock();
-        clockIcon = clock.image;
+        keyIcon = SuperObject.loadImage("key");
+        clockIcon = SuperObject.loadImage("clock");
     }
 
     public void draw(Graphics2D g2d) {
