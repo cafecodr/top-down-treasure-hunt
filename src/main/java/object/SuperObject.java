@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SuperObject {
-    private GamePanel gp;
+    private final GamePanel gp;
     private final BufferedImage image;
     private final String name;
-    private boolean collision = false;
+    private boolean collision;
     private int worldX, worldY;
     private Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     private int solidAreaDefaultX = 0, solidAreaDefaultY = 0;
